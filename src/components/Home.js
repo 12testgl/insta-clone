@@ -7,6 +7,7 @@ import { db, auth } from "../firebase";
 import 'firebase/compat/auth';
 import Posts from './Posts';
 import AddPost from './AddPost';
+import { Edit } from '@material-ui/icons';
 
 
 function getModalStyle() {
@@ -97,6 +98,7 @@ const Home = () => {
                 );
             });
     }, []);
+
     return (
         <div className="app">
             <Modal open={open} onClose={() => setOpen(false)}>
@@ -193,8 +195,24 @@ const Home = () => {
                 )}
             </div>
 
+
+
+            {user && user.displayName ? (
+                <>
+                    {/* <h2 style={{ textAlign: ' center' }}>userid: {user.displayName}</h2> */}
+                    <AddPost username={user.displayName} />
+                </>
+            ) : (
+                <div className='unauth'>
+                    Please <b onClick={() => setOpensignin(true)} style={{ cursor: 'pointer', color: 'Blue' }}>Login</b>/<b onClick={() => setOpen(true)} style={{ cursor: 'pointer', color: 'Blue' }}>Register</b> to Add New Post
+                </div>
+            )}
+
             <div className="app__posts">
                 <div className="app__postright">
+
+                    {/* {user && user.displayName && <h2 style={{ textAlign: ' center' }}>userid: {user.displayName}</h2>} */}
+                    <br />
                     {posts.map(({ id, post }) => (
                         <Posts
                             key={id}
@@ -207,14 +225,6 @@ const Home = () => {
                     ))}
                 </div>
             </div>
-
-            {user ? (
-                <AddPost username={user.displayName} />
-            ) : (
-                <div className='unauth'>
-                    Please <b onClick={() => setOpensignin(true)} style={{ cursor: 'pointer', color: 'Blue' }}>Login</b>/<b onClick={() => setOpen(true)} style={{ cursor: 'pointer', color: 'Blue' }}>Register</b> to Add New Post
-                </div>
-            )}
         </div>
     )
 }

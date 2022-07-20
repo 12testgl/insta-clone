@@ -12,12 +12,10 @@ function AddPost({ username }) {
     const [image, setImage] = useState(null);
     const [caption, setCaption] = useState('');
     const [progress, setProgress] = useState(0);
-    const [istrue, setTrue] = useState(false);
 
     const handleChange = (e) => {
         if (e.target.files[0]) {
             setImage(e.target.files[0]);
-            setTrue(true)
         }
     };
 
@@ -51,23 +49,24 @@ function AddPost({ username }) {
 
             }
         )
+        setCaption(' ')
+        setImage(null)
     }
     return (
         < div className="imagesupload">
 
 
             <h2 style={{ textAlign: 'center', margin: '15px' }}>Add New post</h2>
-            {
-                istrue &&
-                < progress className="progress" value={progress} max="100" />
-            }
+
+
             <input className='file-input' type="file" onChange={handleChange} />
             <br />
             <TextField id="filled-basic" label="Caption here" variant="filled" onChange={event => setCaption(event.target.value)} value={caption} />
             <br />
 
+            < progress className="progress" value={progress} max="100" />
             <Button variant="contained" color='primary' onClick={handleUpload}>
-                Upload
+                ADD POST
             </Button>
 
 

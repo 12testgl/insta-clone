@@ -99,6 +99,7 @@
 
 .post__comments {
   padding: 20px;
+  display: flex;
 }
 
 /* upload */
