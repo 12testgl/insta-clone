@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app__header {
+  object-fit: contain;
+  display: flex;
+  z-index: 1;
+  padding: 20px;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+  background-color: azure;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app_headerImage {
+  object-fit: content;
+}
+
+.app__signup {
   display: flex;
   flex-direction: column;
+}
+
+.unauth {
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+/* posts */
+
+.app__posts {
+  display: flex;
+  padding-top: 20px;
+  padding-left: 500px;
+}
+
+.app__postleft {
+  margin-left: 10px
+}
+
+.post__image {
+  width: 100%;
+  object-fit: contain;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.post__header {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.post__avatar {
+  margin-right: 10px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.post__text {
+  padding: 20px;
+}
+
+.post {
+  background-color: white;
+  max-width: 500px;
+  border: 1px solid black;
+  margin-bottom: 45px;
+  border-radius: 10px;
+
+
+}
+
+.post__commentbox {
+  display: flex;
+  margin-top: 10px;
+}
+
+.post__input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  border-top: 1px solid lightblue;
+}
+
+.post__button {
+  flex: 0;
+  border: none;
+  border-top: 1px solid lightgray;
+}
+
+.post__comments {
+  padding: 20px;
+}
+
+/* upload */
+
+.imagesupload {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+
+}
+
+.progress {
+  width: 100%;
+}
+
+input[type=file] {
+  font-size: medium;
+  display: inline-block;
+  cursor: pointer;
 }
